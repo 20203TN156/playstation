@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -20,28 +22,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item border border-secondary rounded-pill">
-                    <a class="nav-link" href="#">Más reciente</a>
+                    <a class="nav-link active" href="#">Vista simulador</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Colecciones</a>
+                    <a class="nav-link" href="agregar_juego">Agregar juego</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ofertas</a>
+                    <a class="nav-link" href="#">Eliminar o editar juegos</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">PS5</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Suscripciones</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Explorar</a>
-                </li>
+
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="" aria-label="">
                 <button class="btn btn-outline-primary" type="submit">Buscar</button>
             </form>
+
         </div>
     </div>
 </nav>
@@ -77,46 +72,14 @@
         <h1>Los más aclamados</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4">
 
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://image.api.playstation.com/pr/bam-art/135/179/030aaaa3-8523-4775-8c12-981ce771e318.png?w=440&thumb=false"
-                         class="card-img-top" alt="...">
-                </div>
-            </div>
+            <c:forEach items="${listaJuegos}" var = "juego" varStatus="status">
 
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://image.api.playstation.com/vulcan/img/rnd/202112/0508/9SK4qg9A0A94chx1WCp32UEh.png?w=440&thumb=false"
-                         class="card-img-top" alt="...">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-5">
+                    <div class="card">
+                        <img src="${pageContext.request.contextPath}/ServletGetFile?id=${juego.id_videojuego}" class="rounded" alt="" >
+                    </div>
                 </div>
-            </div>
-
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://image.api.playstation.com/pr/bam-art/134/835/331a2da3-48c5-4868-b079-f04f5cdd644c.jpg?w=440&thumb=false"
-                         class="card-img-top" alt="...">
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202110/0704/0PF4r8CQBzoBVgL4UrxbmJlJ.png?w=440&thumb=false" class="card-img-top"
-                         alt="...">
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://image.api.playstation.com/pr/bam-art/135/103/e37a0f42-c480-45b1-8282-aa3f1966f571.jpg?w=440&thumb=false" class="card-img-top" alt="...">
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://image.api.playstation.com/vulcan/img/rnd/202201/1300/huRSi3QcAk2ppr8FyHvy92sg.png?w=440&thumb=false" class="card-img-top" alt="...">
-                </div>
-            </div>
-
+            </c:forEach>
         </div>
     </div>
 </div>
@@ -128,28 +91,14 @@
         <h1>Próximamente</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4">
 
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202010/2915/kifM3lnke5lExwRd96mIDojQ.png?w=440&thumb=false" class="card-img-top"
-                         alt="...">
-                </div>
-                <p>Horizon Forbidden West</p>
-            </div>
+            <c:forEach items="${listaJuegosProx}" var = "juego" varStatus="status">
 
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png?w=440&thumb=false" class="card-img-top" alt="...">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-5">
+                    <div class="card">
+                        <img src="${pageContext.request.contextPath}/ServletGetFile?id=${juego.id_videojuego}" class="rounded" alt="" >
+                    </div>
                 </div>
-                <p>Gran Turismo 7</p>
-            </div>
-
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202107/0902/fS3Hhaq06TqLrbjMVplA8MaY.png?w=440&thumb=false" class="card-img-top" alt="...">
-                </div>
-                <p>Elden Ring</p>
-            </div>
-
+            </c:forEach>
         </div>
     </div>
 </div>
@@ -164,7 +113,7 @@
             <!-- Section: CTA -->
             <section class="">
                 <p class="d-flex justify-content-center align-items-center">
-                    <img  src="img/logo2.png">
+                    <img  src="img/logo2.png" width="100px">
 
                 </p>
             </section>

@@ -1,6 +1,8 @@
-package com.im.bienes.controller;
+package com.gms.playstation.controller;
 
-import com.im.bienes.model.*;
+import com.gms.playstation.model.BeanCards;
+import com.gms.playstation.model.DaoCards;
+import com.gms.playstation.model.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -14,13 +16,16 @@ public class Inicio extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         DaoCards daoCardsBuscar = new DaoCards();
+
         List<BeanCards> listJuegos = daoCardsBuscar.findAll();
+        List<BeanCards> listJuegosProx = daoCardsBuscar.findAllProx();
         request.setAttribute("listaJuegos", listJuegos);
+        request.setAttribute("listaJuegosProx", listJuegosProx);
         request.getRequestDispatcher("index.jsp").forward(request,response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
     }
 }

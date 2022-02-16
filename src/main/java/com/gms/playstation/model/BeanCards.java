@@ -1,4 +1,4 @@
-package com.im.bienes.model;
+package com.gms.playstation.model;
 
 import java.io.InputStream;
 
@@ -6,11 +6,11 @@ public class BeanCards {
     private int id_videojuego;
     private String nombre;
     private String descripcion;
-    private double precio;
+    private String precio;
     private String estado;
     private InputStream imagen;
 
-    public BeanCards(int id_videojuego, String nombre, String descripcion, double precio, String estado, InputStream imagen) {
+    public BeanCards(int id_videojuego, String nombre, String descripcion, String precio, String estado, InputStream imagen) {
         this.id_videojuego = id_videojuego;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -47,11 +47,11 @@ public class BeanCards {
         this.descripcion = descripcion;
     }
 
-    public double getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 

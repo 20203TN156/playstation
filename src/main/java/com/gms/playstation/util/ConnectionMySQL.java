@@ -1,4 +1,4 @@
-package com.im.bienes.util;
+package com.gms.playstation.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
