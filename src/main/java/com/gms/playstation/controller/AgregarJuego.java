@@ -32,7 +32,6 @@ public class AgregarJuego extends HttpServlet {
         unCard.setPrecio(precio);
         unCard.setEstado(estado);
         //unCard.setImagen(banner.getInputStream());
-        unCard.setImagen(banner.getInputStream());
 
 
         DaoCards daoCards = new DaoCards();
