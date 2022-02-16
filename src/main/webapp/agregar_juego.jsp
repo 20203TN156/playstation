@@ -49,7 +49,7 @@
     <div class="row mb-5">
         <div class="col-md-6 mb-5">
             ${mensaje}
-            <form action="agregar_juego" method="post">
+            <form action="agregar_juego" method="post" enctype="multipart/form-data">
                 <div class="form-group mt-3 mb-5">
 
                     <label for="name">Nombre</label>

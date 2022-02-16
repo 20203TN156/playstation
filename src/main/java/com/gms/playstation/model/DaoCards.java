@@ -37,12 +37,12 @@ public class DaoCards {
 
     public boolean saveBanner(BeanCards unCard) {
         try(Connection con = new ConnectionMySQL().getConnection()){
-            try(PreparedStatement pstm = con.prepareStatement("INSERT INTO videogame (name, description, price, state) VALUES (?, ?, ?, ?)")){
+            try(PreparedStatement pstm = con.prepareStatement("INSERT INTO videogame (name, description, price, state, image) VALUES (?, ?, ?, ?, ?)")){
                 pstm.setString(1, unCard.getNombre());
                 pstm.setString(2, unCard.getDescripcion());
                 pstm.setString(3, unCard.getPrecio());
                 pstm.setString(4, unCard.getEstado());
-                //pstm.setBlob(5, unCard.getImagen());
+                pstm.setBlob(5, unCard.getImagen());
                 return pstm.executeUpdate() == 1;
             }catch (SQLException ex){
                 ex.printStackTrace();

@@ -9,6 +9,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @WebServlet(name = "AgregarJuego", value = "/agregar_juego")
+@MultipartConfig
 public class AgregarJuego extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,14 +25,14 @@ public class AgregarJuego extends HttpServlet {
         String description = request.getParameter("description");
         String precio = request.getParameter("price");
         String estado = request.getParameter("state");
-        //Part banner = request.getPart("image") != null ? request.getPart("image"): null;
+        Part banner = request.getPart("image");
 
         BeanCards unCard = new BeanCards();
         unCard.setNombre(nombre);
         unCard.setDescripcion(description);
         unCard.setPrecio(precio);
         unCard.setEstado(estado);
-        //unCard.setImagen(banner.getInputStream());
+        unCard.setImagen(banner.getInputStream());
 
 
         DaoCards daoCards = new DaoCards();
