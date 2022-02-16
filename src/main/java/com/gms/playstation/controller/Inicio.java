@@ -21,7 +21,7 @@ public class Inicio extends HttpServlet {
         List<BeanCards> listJuegosProx = daoCardsBuscar.findAllProx();
         request.setAttribute("listaJuegos", listJuegos);
         request.setAttribute("listaJuegosProx", listJuegosProx);
-        request.getRequestDispatcher("index.jsp").forward(request,response);
+        request.getRequestDispatcher("inicio.jsp").forward(request,response);
     }
 
     @Override

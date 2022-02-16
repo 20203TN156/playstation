@@ -49,29 +49,28 @@
     <div class="row mb-5">
         <div class="col-md-6 mb-5">
             ${mensaje}
-            <form action="agregar_juego" method="post" enctype="multipart/form-data">
+            <form action="agregar_juego" method="post">
                 <div class="form-group mt-3 mb-5">
-                    <label for="nombre">Nombre</label>
-                    <input class="form-control" type="text" name="nombre" id="nombre">
 
-                    <label for="descripcion">Descripción</label>
-                    <textarea class="form-control" name="descripcion" id="descripcion"></textarea>
+                    <label for="name">Nombre</label>
+                    <input class="form-control" type="text" name="name" id="name">
 
-                    <label for="precio">Precio</label>
-                    <input type="text" name="precio" id="precio" class="form-control">
+                    <label for="description">Descripción</label>
+                    <textarea class="form-control" name="description" id="description"></textarea>
 
-                    <label for="image"></label>
+                    <label for="price">Precio</label>
+                    <input type="text" name="price" id="price" class="form-control">
+
+                    <label for="image">Imagen del juego</label>
                     <input type="file" class="form-control form-control-file" name="image" id="image">
 
 
                     <label class="mt-2">Estado de disponibilidad</label>
 
-                    <select name="estado" class="form-select">
+                    <select name="state" class="form-select">
                         <option value="Próximamente">Próximamente</option>
                         <option value="Disponible">Disponible</option>
                     </select>
-
-
 
                     <button type="submit" class="btn btn-outline-primary mt-4">Registrar</button>
                 </div>

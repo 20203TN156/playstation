@@ -20,11 +20,11 @@ public class AgregarJuego extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        String nombre = request.getParameter("nombre")!= null? request.getParameter("nombre"): "";
-        String description = request.getParameter("descripcion")!= null? request.getParameter("descripcion"): "";
-        String precio = request.getParameter("precio") != null ? (request.getParameter("precio")) : "";
-        String estado = request.getParameter("estado") != null ? (request.getParameter("estado")) : "";
-        Part banner = request.getPart("image") != null ? request.getPart("image"): null;
+        String nombre = request.getParameter("name");
+        String description = request.getParameter("description");
+        String precio = request.getParameter("price");
+        String estado = request.getParameter("state");
+        //Part banner = request.getPart("image") != null ? request.getPart("image"): null;
 
         BeanCards unCard = new BeanCards();
         unCard.setNombre(nombre);
